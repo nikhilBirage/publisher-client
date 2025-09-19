@@ -27,12 +27,18 @@ jobs:
         run: |
           npm ci
           npm run build -- --configuration production
-
-      - name: Archive dist
+          
+      - name: List dist output
         run: |
-          # Replace <project-name> with the actual Angular output folder under dist
-          cd dist/publisher-client/browser
-          zip -r ../../site.zip .
+          ls -la dist
+          ls -la dist/<project-name> || true
+          ls -la dist/<project-name>/browser || true
+
+      - name: Create site.zip (browser output)
+        if: ${{ hashFiles('dist/<project-name>/browser/index.html') != '' }}
+        run: |
+          cd dist/<project-name>/browser
+          zip -r ../../../site.zip .
           
       - name: Deploy to App Service
         uses: azure/webapps-deploy@v3
@@ -41,4 +47,5 @@ jobs:
           slot-name: Production
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_378A8A9D88C44011B30F8FC010508E5E }}
           package: site.zip
+
 
