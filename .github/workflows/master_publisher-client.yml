@@ -37,7 +37,8 @@ jobs:
       - name: Deploy to App Service
         uses: azure/webapps-deploy@v3
         with:
-          app-name: Your-App-Service-Name
+          app-name: publisher-client
           slot-name: Production
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_378A8A9D88C44011B30F8FC010508E5E }}
           package: site.zip
+
