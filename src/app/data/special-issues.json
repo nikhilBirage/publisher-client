@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Annual Tech Review 2024",
+    "publicationDate": "2025-01-15",
+    "description": "Comprehensive yearly technology analysis",
+    "downloads": 456
+  },
+  {
+    "id": 2,
+    "name": "COVID-19 Tech Response",
+    "publicationDate": "2024-12-01",
+    "description": "How technology helped during the pandemic",
+    "downloads": 389
+  },
+  {
+    "id": 3,
+    "name": "Women in Technology",
+    "publicationDate": "2024-10-15",
+    "description": "Celebrating female leaders in tech industry",
+    "downloads": 278
+  },
+  {
+    "id": 4,
+    "name": "Startup Success Stories",
+    "publicationDate": "2024-08-20",
+    "description": "Profiles of breakthrough technology startups",
+    "downloads": 234
+  },
+  {
+    "id": 5,
+    "name": "Climate Tech Solutions",
+    "publicationDate": "2024-06-15",
+    "description": "Technology addressing climate change",
+    "downloads": 345
+  },
+  {
+    "id": 6,
+    "name": "Future of Transportation",
+    "publicationDate": "2024-04-10",
+    "description": "Autonomous vehicles and smart mobility",
+    "downloads": 267
+  },
+  {
+    "id": 7,
+    "name": "Space Technology Advances",
+    "publicationDate": "2024-02-28",
+    "description": "Private space exploration and satellite tech",
+    "downloads": 198
+  },
+  {
+    "id": 8,
+    "name": "Emerging Markets Tech",
+    "publicationDate": "2023-12-15",
+    "description": "Technology adoption in developing countries",
+    "downloads": 156
+  }
+]

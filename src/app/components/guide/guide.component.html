@@ -1,0 +1,33 @@
+<!-- Guidelines Component -->
+<div id="guidelines-component">
+  <div class="container">
+    <h2>Guidelines for Authors</h2>
+    <p>
+      Please review the following guidelines before submitting your manuscript
+      for publication consideration.
+    </p>
+
+    <div class="table-container">
+      <table class="guidelines-table">
+        <thead>
+          <tr>
+            <th>Guideline Category</th>
+            <th>Requirement</th>
+            <th>Details</th>
+            <th>Deadline</th>
+          </tr>
+        </thead>
+        <tbody id="guidelinesTableBody">
+          <tr *ngFor="let guide of guidelines">
+            <td>
+              <strong>{{ guide.category }}</strong>
+            </td>
+            <td>{{ guide.requirement }}</td>
+            <td>{{ guide.details }}</td>
+            <td>{{ guide.deadline }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

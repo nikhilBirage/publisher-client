@@ -1,0 +1,117 @@
+<!-- Special Issues Component -->
+<div id="special-issues-component">
+  <div class="container">
+    <h2>Special Issues</h2>
+
+    <!-- Search Filter Component -->
+    <form [formGroup]="filterForm">
+      <div class="filters-section">
+       <div class="search-filter">
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            formControlName="name"
+            placeholder="Search by issue name..."
+          />
+        </div>
+        <div class="date-filters">
+          <input
+            type="date"
+            id="currentIssuesFromDate"
+            formControlName="publicationDateFrom"
+            class="form-control"
+          />
+          <span>to</span>
+          <input
+            type="date"
+            id="currentIssuesToDate"
+            formControlName="publicationDateTo"
+            class="form-control"
+          />
+        </div>
+        <div>
+          <button
+            id="currentIssuesResetBtn"
+            (click)="resetFilters()"
+            class="btn btn--outline"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div class="table-container">
+      <table class="issues-table">
+        <thead>
+          <tr>
+            <th>Issue Name</th>
+            <!-- Updated Header with Sorting -->
+            <th (click)="toggleSortDirection()" class="sortable-header">
+              Publication Date
+              <span *ngIf="sortDirection === 'asc'">▲</span>
+              <span *ngIf="sortDirection === 'desc'">▼</span>
+            </th>
+            <th>Description</th>
+            <th>Downloads</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="specialIssuesTableBody">
+          <tr *ngFor="let issue of paginatedIssues">
+            <td>
+              <strong>{{ issue.name }}</strong>
+            </td>
+            <td>{{ formatDate(issue.publicationDate) }}</td>
+            <td>{{ issue.description }}</td>
+            <td>{{ issue.downloads }}</td>
+            <td>
+              <button
+                class="btn btn--primary btn--sm download-btn"
+                onclick="downloadIssue(issue.id)"
+              >
+                Download PDF
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="filteredSpecialIssues.length === 0 && loader === false">
+            <td colspan="5" class="no-results">
+              No issues found matching your criteria.
+            </td>
+          </tr>
+           <tr *ngIf="loader === true">
+            <div class="spinner-div" ><div class="spinner"></div></div>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination Component -->
+    <div class="pagination-container">
+      <div
+        class="pagination"
+        id="currentIssuesPagination"
+        *ngIf="filteredSpecialIssues.length > 0"
+      >
+        <button
+          (click)="goToPreviousPage()"
+          [disabled]="currentPage === 1"
+          class="pagination-button"
+        >
+          Previous
+        </button>
+        <span class="page-info">
+          Page {{ currentPage }} of {{ totalPages }}
+        </span>
+        <button
+          (click)="goToNextPage()"
+          [disabled]="currentPage === totalPages"
+          class="pagination-button"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

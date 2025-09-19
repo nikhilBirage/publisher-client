@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "name": "Technology Trends 2025",
+    "publicationDate": "2025-08-20",
+    "description": "Latest developments in AI and machine learning",
+    "downloads": 245
+  },
+  {
+    "id": 2,
+    "name": "Digital Transformation",
+    "publicationDate": "2025-08-15",
+    "description": "How businesses are adapting to digital change",
+    "downloads": 189
+  },
+  {
+    "id": 3,
+    "name": "Future of Work",
+    "publicationDate": "2025-08-10",
+    "description": "Remote work and hybrid models analysis",
+    "downloads": 167
+  },
+  {
+    "id": 4,
+    "name": "Sustainable Technology",
+    "publicationDate": "2025-08-05",
+    "description": "Green tech innovations and environmental impact",
+    "downloads": 203
+  },
+  {
+    "id": 5,
+    "name": "Cybersecurity Insights",
+    "publicationDate": "2025-07-30",
+    "description": "Latest threats and protection strategies",
+    "downloads": 178
+  },
+  {
+    "id": 6,
+    "name": "Healthcare Innovation",
+    "publicationDate": "2025-07-25",
+    "description": "Medical technology breakthroughs",
+    "downloads": 156
+  },
+  {
+    "id": 7,
+    "name": "Smart Cities Initiative",
+    "publicationDate": "2025-07-20",
+    "description": "Urban planning and IoT integration",
+    "downloads": 134
+  },
+  {
+    "id": 8,
+    "name": "Educational Technology",
+    "publicationDate": "2025-07-15",
+    "description": "E-learning platforms and digital classrooms",
+    "downloads": 145
+  },
+  {
+    "id": 9,
+    "name": "Fintech Revolution",
+    "publicationDate": "2025-07-10",
+    "description": "Digital banking and cryptocurrency trends",
+    "downloads": 198
+  },
+  {
+    "id": 10,
+    "name": "AI Ethics Guidelines",
+    "publicationDate": "2025-07-05",
+    "description": "Responsible AI development practices",
+    "downloads": 167
+  },
+  {
+    "id": 11,
+    "name": "Cloud Computing Strategies",
+    "publicationDate": "2025-06-30",
+    "description": "Enterprise cloud migration best practices",
+    "downloads": 143
+  },
+  {
+    "id": 12,
+    "name": "Data Privacy Regulations",
+    "publicationDate": "2025-06-25",
+    "description": "GDPR compliance and global data protection",
+    "downloads": 156
+  },
+  {
+    "id": 13,
+    "name": "5G Technology Impact",
+    "publicationDate": "2025-06-20",
+    "description": "Next-generation connectivity and applications",
+    "downloads": 189
+  },
+  {
+    "id": 14,
+    "name": "Blockchain Applications",
+    "publicationDate": "2025-06-15",
+    "description": "Beyond cryptocurrency: practical blockchain uses",
+    "downloads": 134
+  },
+  {
+    "id": 15,
+    "name": "Quantum Computing Basics",
+    "publicationDate": "2025-06-10",
+    "description": "Introduction to quantum technology potential",
+    "downloads": 112
+  }
+]

@@ -1,0 +1,112 @@
+<!-- Admin Component (Protected Route) -->
+<div id="admin-component">
+  <div class="container">
+    <h2>Admin Panel</h2>
+
+    <div class="admin-content">
+      <div class="upload-section">
+        <h3>Upload New Issue</h3>
+        <form
+          id="uploadForm"
+          class="upload-form"
+          [formGroup]="uploadForm"
+          (ngSubmit)="onSubmit()"
+        >
+          <div class="form-group">
+            <label class="form-label">Issue Type</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input
+                  type="radio"
+                  name="type"
+                  value="current"
+                  formControlName="type"
+                  checked
+                />
+                Current Issue
+              </label>
+              <label class="radio-label">
+                <input
+                  type="radio"
+                  name="type"
+                  value="special"
+                  formControlName="type"
+                />
+                Special Issue
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Issue Name</label>
+            <input
+              type="text"
+              id="issueName"
+              class="form-control"
+              formControlName="name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Description</label>
+            <textarea
+              id="issueDescription"
+              class="form-control"
+              rows="3"
+              formControlName="description"
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Publication Date</label>
+            <input
+              type="date"
+              id="publicationDate"
+              class="form-control"
+              formControlName="date"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">PDF File</label>
+            <input
+              type="file"
+              id="pdfFile"
+              class="form-control"
+              (change)="onFileSelected($event)"
+              accept=".pdf"
+            />
+          </div>
+          <div *ngIf="selectedFile" class="file-info">
+            Selected file: {{ selectedFile.name }} ({{
+              (selectedFile.size / 1024).toFixed(2)
+            }}
+            KB)
+          </div>
+          <button
+            type="submit"
+            [disabled]="uploadForm.invalid"
+            class="btn btn--primary"
+          >
+            Upload Issue
+          </button>
+        </form>
+        <div *ngIf="uploadSuccess" class="success-message">
+          File uploaded successfully!
+        </div>
+      </div>
+
+      <div class="management-section">
+        <h3>Recent Uploads</h3>
+        <div class="recent-uploads" id="recentUploads">
+          <p *ngIf="recentUploads.length == 0">No recent uploads</p>
+
+          <div class="upload-item" *ngFor="let upload of recentUploads">
+            <h5>{{ upload.name }}</h5>
+            <p>Type: {{ upload.type }} Issue</p>
+            <p>Uploaded: {{ formatDate(upload.date) }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
