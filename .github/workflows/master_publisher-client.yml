@@ -25,31 +25,19 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+          npm ci
+          npm run build -- --configuration production
 
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
-        with:
-          name: node-app
-          path: .
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: node-app
-      
-      - name: 'Deploy to Azure Web App'
-        id: deploy-to-webapp
+      - name: Archive dist
+        run: |
+          # Replace <project-name> with the actual Angular output folder under dist
+          cd dist/publisher-client/browser
+          zip -r ../../site.zip .
+          
+      - name: Deploy to App Service
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'publisher-client'
-          slot-name: 'Production'
-          package: .
+          app-name: Your-App-Service-Name
+          slot-name: Production
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_378A8A9D88C44011B30F8FC010508E5E }}
+          package: site.zip
