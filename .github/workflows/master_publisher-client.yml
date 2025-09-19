@@ -31,13 +31,13 @@ jobs:
       - name: List dist output
         run: |
           ls -la dist
-          ls -la dist/<project-name> || true
-          ls -la dist/<project-name>/browser || true
+          ls -la dist/publisher-client || true
+          ls -la dist/publisher-client/browser || true
 
       - name: Create site.zip (browser output)
-        if: ${{ hashFiles('dist/<project-name>/browser/index.html') != '' }}
+        if: ${{ hashFiles('dist/publisher-client/browser/index.html') != '' }}
         run: |
-          cd dist/<project-name>/browser
+          cd dist/publisher-client/browser
           zip -r ../../../site.zip .
           
       - name: Deploy to App Service
@@ -47,5 +47,6 @@ jobs:
           slot-name: Production
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_378A8A9D88C44011B30F8FC010508E5E }}
           package: site.zip
+
 
 
